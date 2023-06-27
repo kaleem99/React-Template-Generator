@@ -1,0 +1,66 @@
+.Main {
+  width: 100%;
+  height: calc(100vh - 80px);
+  //   margin-top: -21px;
+  //   background-color: red;
+  padding-top: 20px;
+}
+
+.platform-Container {
+  width: 70%;
+  height: 400px;
+  margin: 8% auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.platform-Items {
+  width: 280px;
+  height: 240px;
+  border: 1px solid;
+  margin: auto;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.platform-Items:hover {
+  transform: scale(1.2);
+}
+.MainInnerContent {
+  width: 70%;
+  height: auto;
+  margin: auto;
+}
+
+.MainHeader {
+  margin: auto;
+}
+.MainNavigation {
+  width: 100px;
+  height: 100%;
+  //   background-color: gray;
+  float: left;
+  margin-left: 10px;
+  border: 1px solid;
+  margin-top: -10px;
+  border-radius: 10px;
+}
+.ButtonMenu {
+  font-size: 30px;
+  width: 100%;
+  border: none;
+}
+.MainNavigationClose {
+  width: 100px;
+  //   height: 100%;
+  //   background-color: gray;
+  float: left;
+  margin-left: 10px;
+  border: 1px solid;
+  margin-top: -10px;
+  border-radius: 10px;
+}
+#SectionButtons{
+  width: 100%;
+  height: 40px;
+  font-size: medium;
+}
