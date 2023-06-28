@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/React-Template-Generator/static/css/main.1e35c57c.css",
+    "main.js": "/React-Template-Generator/static/js/main.460a194c.js",
+    "static/js/787.1c37c6e6.chunk.js": "/React-Template-Generator/static/js/787.1c37c6e6.chunk.js",
+    "static/media/logo.svg": "/React-Template-Generator/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/React-Template-Generator/index.html",
+    "main.1e35c57c.css.map": "/React-Template-Generator/static/css/main.1e35c57c.css.map",
+    "main.460a194c.js.map": "/React-Template-Generator/static/js/main.460a194c.js.map",
+    "787.1c37c6e6.chunk.js.map": "/React-Template-Generator/static/js/787.1c37c6e6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1e35c57c.css",
+    "static/js/main.460a194c.js"
+  ]
+}
