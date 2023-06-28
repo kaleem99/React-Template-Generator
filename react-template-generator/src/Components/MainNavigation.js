@@ -1,10 +1,13 @@
 import { connect, useDispatch } from "react-redux";
 import { IoMenu } from "react-icons/io5";
-import { CHANGE_SECTION, MENU_OPEN_CLOSE } from "../Redux/actions";
-import { SubSections } from "../constants";
+import {
+  CHANGE_PLATFORM,
+  CHANGE_SECTION,
+  MENU_OPEN_CLOSE,
+} from "../Redux/actions";
+import { SubSections, Platforms } from "../constants";
 function MainNavigation({ mainNavigationOpenClose, Platform, Sections }) {
   const dispatch = useDispatch();
-  console.log(mainNavigationOpenClose);
   if (mainNavigationOpenClose === true) {
     return (
       <div className="MainNavigation">
@@ -19,6 +22,7 @@ function MainNavigation({ mainNavigationOpenClose, Platform, Sections }) {
         >
           <IoMenu />
         </button>
+        <h3 className="MainTitles">Sections</h3>
         {Platform !== "" &&
           SubSections.map((item, i) => (
             <button
@@ -29,6 +33,22 @@ function MainNavigation({ mainNavigationOpenClose, Platform, Sections }) {
               }
               id="SectionButtons"
               onClick={() => dispatch({ type: CHANGE_SECTION, payload: item })}
+            >
+              {item}
+            </button>
+          ))}
+        <br></br>
+        <h3 className="MainTitles">Platforms</h3>
+        {Platform !== "" &&
+          Platforms.map((item, i) => (
+            <button
+              style={
+                Platform === item
+                  ? { background: "#3D76D4", color: "white" }
+                  : {}
+              }
+              id="SectionButtons"
+              onClick={() => dispatch({ type: CHANGE_PLATFORM, payload: item })}
             >
               {item}
             </button>

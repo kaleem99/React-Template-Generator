@@ -2,17 +2,28 @@ import logo from "./logo.svg";
 import "./App.css";
 import Header from "./Components/Header";
 import Main from "./Main";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { connect, useDispatch, useSelector } from "react-redux";
+import { fetchApiKey } from "./Redux/actions";
+import BottomNavigation from "./Components/BottomNavigation";
 function App() {
   const state = useSelector((state) => state);
-  console.log(state)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchApiKey());
+    // dispatch({ type: FETCH_API_KEY });
+  }, [dispatch]);
   return (
     <div className="App">
       <Header />
-      <Main state={state} /> 
+      <Main state={state} />
+      <BottomNavigation />
     </div>
   );
 }
+const mapStateToProps = (state) => {
+  return { APIKey: state.githubReducer.APIKey };
+};
 
-export default App;
-  
+export default connect(mapStateToProps, {})(App);

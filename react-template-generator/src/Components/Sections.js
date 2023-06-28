@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import WelcomePage from "../Pages/WelcomePage";
 import TryItPage from "../Pages/TryItPage";
+import Github from "../Pages/Github";
 const Sections = ({ Sections }) => {
   let body = "";
   switch (Sections) {
@@ -9,6 +10,9 @@ const Sections = ({ Sections }) => {
       break;
     case "Try It Content":
       body = <TryItPage />;
+      break;
+    case "Github":
+      body = <Github />;
       break;
     default:
       body = "";

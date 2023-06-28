@@ -5,16 +5,16 @@ function WelcomePage() {
       <div
         className="Welcome PageDiv"
         style={{
-          width: "60%",
+          width: "80%",
           height: "auto",
-          padding: "20px",
+          // padding: "20px",
           // border: "1px solid",
           // margin: "5% auto",
           textAlign: "left",
-          margin: 0,
-          position: "absolute",
-          top: "50%",
-          transform: "translateY(-50%)",
+          margin: "10% auto",
+          // position: "absolute",
+          // top: "50%",
+          // transform: "translateY(-50%)",
         }}
       >
         <div

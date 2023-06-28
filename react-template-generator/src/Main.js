@@ -37,8 +37,11 @@ function Main({ Platform }) {
       break;
   }
   return (
-    <div className="Main">
-      <MainNavigation/>
+    <div
+      className="Main"
+      style={Platform === "" ? { display: "block" } : { display: "grid" }}
+    >
+      {Platform !== "" && <MainNavigation />}
       <div className="MainInnerContent">{body}</div>
     </div>
   );

@@ -23,7 +23,7 @@ function TryItPage() {
             height: "auto",
             //   padding: "20px",
             //   border: "1px solid",
-            margin: "auto",
+            margin: "0% auto",
           }}
         >
           {/* <Paragraph
@@ -34,6 +34,22 @@ function TryItPage() {
               .toLowerCase()}
             onChange={handleChange}
           /> */}
+          <div
+            style={{
+              width: "auto",
+              maxHeight: "65vh",
+              overflow: "scroll",
+              border: "1px solid",
+              minHeight: "400px",
+              padding: "20px",
+            }}
+            // onInput={(e) => onChange(e.target.innerHTML, index)}
+            // value={eval(state[`input${index}`])}
+            // name={"input" + index}
+            className={`inputs`}
+            // key={index}
+            contenteditable="true"
+          ></div>
         </div>
       </div>
     </div>
