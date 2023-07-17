@@ -1,5 +1,5 @@
 import { MENU_OPEN_CLOSE } from "../actions";
-const initialSTATE = { menuOpenOrClose: false };
+const initialSTATE = { menuOpenOrClose: true };
 export const mainNavigationReducer = (state = initialSTATE, action) => {
   switch (action.type) {
     case MENU_OPEN_CLOSE:

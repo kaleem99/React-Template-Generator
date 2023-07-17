@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import "./Sections.scss";
 import WelcomePage from "../Pages/WelcomePage";
 import TryItPage from "../Pages/TryItPage";
 import Github from "../Pages/Github";
@@ -18,7 +19,11 @@ const Sections = ({ Sections }) => {
       body = "";
   }
 
-  return <div>{body}</div>;
+  return (
+    <div className="SectionContent">
+      {body}
+    </div>
+  );
 };
 const mapStateToProps = (state) => {
   return {

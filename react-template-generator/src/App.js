@@ -9,14 +9,16 @@ import BottomNavigation from "./Components/BottomNavigation";
 function App() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(fetchApiKey());
     // dispatch({ type: FETCH_API_KEY });
   }, [dispatch]);
   return (
     <div className="App">
-      <Header />
+      <Header
+        section={state.sectionsReducer.Sections}
+        platform={state.platformReducer.Platform}
+      />
       <Main state={state} />
       <BottomNavigation />
     </div>

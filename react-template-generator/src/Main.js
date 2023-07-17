@@ -6,6 +6,11 @@ import { CHANGE_PLATFORM } from "./Redux/actions";
 import { Connect } from "react-redux";
 import MainNavigation from "./Components/MainNavigation";
 import Sections from "./Components/Sections";
+const Images = [
+  "https://kaleem99.github.io/hostingContents/content/dist/img/edx.png",
+  "https://kaleem99.github.io/hostingContents/content/dist/img/g.jpg",
+  "https://www.instructure.com/sites/default/files/svg/2022-08/Canvas_Horizontal_ByInstructure_Color_RGB.svg",
+];
 function Main({ Platform }) {
   let body = "";
   const dispatch = useDispatch();
@@ -16,19 +21,19 @@ function Main({ Platform }) {
       body = <Sections />;
       break;
     default:
-      console.log(Platform);
       body = (
         <div>
           <h1>Template Generator</h1>
           <div className="platform-Container">
-            {Platforms.map((data) => (
+            {Platforms.map((data, i) => (
               <button
                 onClick={() =>
                   dispatch({ type: CHANGE_PLATFORM, payload: data })
                 }
                 className="platform-Items"
               >
-                <h2>{data}</h2>
+                <img width={220} height={"60%"} alt="" src={Images[i]} />
+                <h2 className="TemplateName">{data}</h2>
               </button>
             ))}
           </div>
