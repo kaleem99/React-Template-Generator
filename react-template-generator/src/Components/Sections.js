@@ -3,6 +3,7 @@ import "./Sections.scss";
 import WelcomePage from "../Pages/WelcomePage";
 import TryItPage from "../Pages/TryItPage";
 import Github from "../Pages/Github";
+import NextSteps from "../Pages/NextSteps";
 const Sections = ({ Sections }) => {
   let body = "";
   switch (Sections) {
@@ -15,15 +16,14 @@ const Sections = ({ Sections }) => {
     case "Github":
       body = <Github />;
       break;
+    case "Next Steps":
+      body = <NextSteps />;
+      break;
     default:
       body = "";
   }
 
-  return (
-    <div className="SectionContent">
-      {body}
-    </div>
-  );
+  return <div className="SectionContent">{body}</div>;
 };
 const mapStateToProps = (state) => {
   return {

@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchApiKey());
     // dispatch({ type: FETCH_API_KEY });
-  }, [dispatch]);
+  }, []);
   return (
     <div className="App">
       <Header

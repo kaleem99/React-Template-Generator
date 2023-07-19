@@ -1,0 +1,23 @@
+.btnSaveAndView {
+  width: 130px;
+  height: 40px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  margin-left: 30px;
+  font-size: medium;
+}
+#TextCopied {
+  width: 120px;
+  height: 50px;
+  // display: block;
+  color: white;
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: rgb(35, 31, 31);
+  display: none;
+  border-radius: 5px;
+}

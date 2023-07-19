@@ -32,7 +32,7 @@ function Main({ Platform }) {
                 }
                 className="platform-Items"
               >
-                <img width={220} height={"60%"} alt="" src={Images[i]} />
+                <img width={"100%"} height={"60%"} alt="" src={Images[i]} />
                 <h2 className="TemplateName">{data}</h2>
               </button>
             ))}

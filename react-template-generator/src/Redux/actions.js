@@ -12,7 +12,10 @@ const WELCOME_VIEW = "WELCOME_VIEW";
 const TRY_IT_VIEW = "TRY_IT_VIEW";
 const NEXT_STEPS_VIEW = "NEXT_STEPS_VIEW";
 const WELCOME_EDIT = "WELCOME_EDIT";
-
+const TRY_IT_EDIT = "TRY_IT_EDIT";
+const TRY_IT_PAGE_ONCHANGE = "TRY_IT_PAGE_ONCHANGE";
+const NEXT_STEPS_EDIT = "NEXT_STEPS_EDIT";
+const NEXT_STEPS_ONCHANGE = "NEXT_STEPS_ONCHANGE";
 export const fetchApiKey = () => {
   return async (dispatch) => {
     const url = "https://express-template-backend.onrender.com/get-api-token";
@@ -37,4 +40,8 @@ export {
   TRY_IT_VIEW,
   NEXT_STEPS_VIEW,
   WELCOME_EDIT,
+  TRY_IT_EDIT,
+  TRY_IT_PAGE_ONCHANGE,
+  NEXT_STEPS_ONCHANGE,
+  NEXT_STEPS_EDIT,
 };

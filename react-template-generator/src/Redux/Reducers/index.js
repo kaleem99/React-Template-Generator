@@ -6,6 +6,8 @@ import { githubReducer } from "./GithubReducer";
 import { contentReducer } from "./ContentReducer";
 import { welcomePageReducer } from "./WelcomePageReducer";
 import { saveAndViewReducer } from "./saveReducer";
+import { tryItContentReducer } from "./TryItContentReducer";
+import { nextStepsReducer } from "./NextStepsReducer";
 export default combineReducers({
   mainNavigationReducer,
   platformReducer,
@@ -14,4 +16,6 @@ export default combineReducers({
   contentReducer,
   welcomePageReducer,
   saveAndViewReducer,
+  tryItContentReducer,
+  nextStepsReducer,
 });

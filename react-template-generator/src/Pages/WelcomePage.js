@@ -39,11 +39,12 @@ function WelcomePage({
   console.log(state);
   const dispatch = useDispatch();
   const handleChange = (event) => {
-    const { name, value, innerHTML } = event.target;
-    if (name === "input3") {
+    const { name, value, innerHTML, className } = event.target;
+    console.log(innerHTML, className);
+    if (className === "input3") {
       dispatch({
         type: WELCOME_PAGE_ONCHANGE,
-        payload: { name, value: innerHTML },
+        payload: { name: className, value: innerHTML },
       });
     } else {
       dispatch({ type: WELCOME_PAGE_ONCHANGE, payload: { name, value } });
@@ -147,7 +148,22 @@ function WelcomePage({
                 contentEditable
                 placeholder=" [insert unit outcome] "
                 name="input3"
-                className="input4"
+                className="input3"
+                onKeyDown={(event) => {
+                  if (event.keyCode === 13) {
+                    event.preventDefault();
+                    // Insert a line break
+                    const selection = window.getSelection();
+                    const range = selection.getRangeAt(0);
+                    const br = document.createElement("br");
+                    range.insertNode(br);
+                    range.setStartAfter(br);
+                    range.setEndAfter(br);
+                    range.collapse(false);
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                  }
+                }}
                 dangerouslySetInnerHTML={{
                   __html: state.input3
                     ? state.input3
