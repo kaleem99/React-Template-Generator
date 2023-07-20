@@ -1,10 +1,12 @@
 // import finalExamWeekComp from "Components/CourseCompletionComp";
 import { useState } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 // import ViewTemplate from "Components/ViewTemplate";
 import Draggable from "react-draggable";
 import "./NextSteps.scss";
-function NextSteps({ courseSection, view, state, setState }) {
+import { NEXT_STEPS_ONCHANGE } from "../Redux/actions";
+function NextSteps({ courseSection, view, state, setState, result }) {
+  const dispatch = useDispatch();
   const [banner, setBanner] = useState("");
   const [popup, setPopup] = useState(false);
   const [hyperLink, setHyperLink] = useState(false);
@@ -13,6 +15,7 @@ function NextSteps({ courseSection, view, state, setState }) {
   const handleChange = (event) => {
     const { name, value, innerHTML, className } = event.target;
     console.log(name, value);
+    dispatch({ type: NEXT_STEPS_ONCHANGE, payload: { name, value } });
     // if (className === "input3") {
     //   dispatch({
     //     type: WELCOME_PAGE_ONCHANGE,
@@ -98,7 +101,7 @@ function NextSteps({ courseSection, view, state, setState }) {
                       type="url"
                       name="urlLink"
                       value={state.urlLink}
-                      //   onChange={handleChange}
+                      onChange={handleChange}
                       placeholder="Link URL"
                     />
                   </>
@@ -163,7 +166,7 @@ function NextSteps({ courseSection, view, state, setState }) {
                 name="input1"
                 className="input2"
                 placeholder="[EXEC ED COURSE TITLE]"
-                // onChange={handleChange}
+                onChange={handleChange}
                 onDoubleClick={() => (popup ? setPopup(false) : setPopup(true))}
               />
             </div>
@@ -172,7 +175,7 @@ function NextSteps({ courseSection, view, state, setState }) {
                 className="input2"
                 name="input2"
                 placeholder="[BRIEF COURSE DESCRIPTION] "
-                // onChange={handleChange}
+                onChange={handleChange}
               />
             </div>
             <div style={{ width: "70%" }}>
@@ -184,7 +187,7 @@ function NextSteps({ courseSection, view, state, setState }) {
                   placeholder="[Exec Ed course title]"
                   name="input3"
                   value={state.input3}
-                  //   onChange={handleChange}
+                  onChange={handleChange}
                 />{" "}
                 , or still have questions?{" "}
                 <input
@@ -193,7 +196,7 @@ function NextSteps({ courseSection, view, state, setState }) {
                   className="input2"
                   style={{ width: "180px", height: "30px" }}
                   value={state.input4}
-                  //   onChange={handleChange}
+                  onChange={handleChange}
                 />{" "}
                 and enter your information to enroll or learn more about this
                 course from GetSmarter (an edX partner). course. After
@@ -224,13 +227,24 @@ function NextSteps({ courseSection, view, state, setState }) {
       </>
     );
   } else {
-    // return <ViewTemplate courseSection={courseSection} />;
+    return (
+      <div
+        style={{
+          textAlign: "left",
+          margin: "auto",
+          height: "75vh",
+          overflow: "scroll",
+        }}
+        dangerouslySetInnerHTML={{ __html: result }}
+      ></div>
+    );
   }
 }
 const mapStateToProps = (state) => {
   return {
     view: state.saveAndViewReducer.view,
     state: "",
+    result: state.saveAndViewReducer.result,
   };
 };
 export default connect(mapStateToProps, {})(NextSteps);

@@ -34,7 +34,7 @@ const nextStepsComp = (state) => {
       </div>
       <div>
       <p>Discover ${
-        state.urlLink === undefined || state.urlLink === ""
+        state.urlLink == undefined || state.urlLink === ""
           ? state.input1
           : `<a href="${state.urlLink}" target="_blank">${state.input1}</a>`
       }</div>

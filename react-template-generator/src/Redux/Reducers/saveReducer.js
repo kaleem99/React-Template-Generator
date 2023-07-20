@@ -52,9 +52,17 @@ export const saveAndViewReducer = (state = initialSTATE, action) => {
     // Next Steps Page
     case NEXT_STEPS_SAVE:
       console.log(action.payload);
-      result = nextStepsComp(action.payload.content);
+      result = nextStepsComp(action.payload);
       localStorage.setItem(NEXT_STEPS_SAVE, result);
       state.message = "File content saved";
+      return { ...state };
+    case NEXT_STEPS_VIEW:
+      result = localStorage.getItem(NEXT_STEPS_SAVE);
+      state.result = result;
+      state.view = true;
+      return { ...state };
+    case NEXT_STEPS_EDIT:
+      state.view = false;
       return { ...state };
     default:
       return state;
