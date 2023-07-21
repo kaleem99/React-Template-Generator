@@ -14,7 +14,6 @@ function NextSteps({ courseSection, view, state, setState, result }) {
 
   const handleChange = (event) => {
     const { name, value, innerHTML, className } = event.target;
-    console.log(name, value);
     dispatch({ type: NEXT_STEPS_ONCHANGE, payload: { name, value } });
     // if (className === "input3") {
     //   dispatch({

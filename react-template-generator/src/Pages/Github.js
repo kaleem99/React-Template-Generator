@@ -71,12 +71,13 @@ function ViewGithubContent({ data, fileContent }) {
   };
   return fileContent === "" ? (
     <div className="GithubPage">
-      <h1 style={{ textAlign: "center" }}>Github HTML Content</h1>
+      {/* <h1 style={{ textAlign: "center" }}>Github HTML Content</h1> */}
       <div style={{ margin: "1px auto", width: "260px" }}>
-        <label>Search file Name</label>{" "}
+        {/* <label>Search file Name</label>{" "} */}
         <input
+          placeholder="search for a specific github file"
           onChange={(e) => setSearch(e.target.value.toLowerCase())}
-          style={{ width: "240px", height: "30px" }}
+          style={{ width: "280px", height: "30px", borderRadius: "10px" }}
         />
       </div>
       <div className="GithubContent">
@@ -86,7 +87,7 @@ function ViewGithubContent({ data, fileContent }) {
             .map((data) => {
               return (
                 <div className="GithubItem">
-                  <p>File Name: {data.name}</p>
+                  <h3>File Name: {data.name}</h3>
                   <p> Hosted Link:</p>
                   <p className="githubLink">
                     <a
@@ -97,6 +98,7 @@ function ViewGithubContent({ data, fileContent }) {
                     </a>
                   </p>
                   <button
+                    className="btnEditContent"
                     value={data.name}
                     onClick={(e) => fetchFileContent(e)}
                   >

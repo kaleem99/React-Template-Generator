@@ -82,7 +82,7 @@ function BottomNavigation({
         margin: "auto",
       }}
     >
-      {fileContent !== "" && (
+      {/* {fileContent !== "" && (
         <>
           {" "}
           <button
@@ -117,7 +117,7 @@ function BottomNavigation({
             Update Template
           </button>
         </>
-      )}
+      )} */}
       {platform !== "" && (
         <>
           {" "}
@@ -146,23 +146,34 @@ function BottomNavigation({
           >
             Save Template
           </button>
-          <button
-            name="1"
-            onClick={() =>
-              !view ? dispatch({ type: VIEW }) : dispatch({ type: EDIT })
-            }
-            onMouseOver={handleMouseOver}
-            onMouseLeave={handleMouseLeave}
-            style={{
-              backgroundColor: isHovered[1].value
-                ? "rgb(61, 118, 212)"
-                : "white",
-              color: isHovered[1].value ? "white" : "black",
-            }}
-            className="btnSaveAndView"
-          >
-            {!view ? "View Template" : "Edit Template"}
-          </button>
+          {fileContent !== "" ? (
+            <button
+              className="btnSaveAndView"
+              onClick={() =>
+                dispatch({ type: CHANGE_FILE_CONTENT, payload: "" })
+              }
+            >
+              Back
+            </button>
+          ) : (
+            <button
+              name="1"
+              onClick={() =>
+                !view ? dispatch({ type: VIEW }) : dispatch({ type: EDIT })
+              }
+              onMouseOver={handleMouseOver}
+              onMouseLeave={handleMouseLeave}
+              style={{
+                backgroundColor: isHovered[1].value
+                  ? "rgb(61, 118, 212)"
+                  : "white",
+                color: isHovered[1].value ? "white" : "black",
+              }}
+              className="btnSaveAndView"
+            >
+              {!view ? "View Template" : "Edit Template"}
+            </button>
+          )}
         </>
       )}
     </div>
