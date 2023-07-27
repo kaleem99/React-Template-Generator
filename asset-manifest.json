@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/React-Template-Generator/static/css/main.83227b1e.css",
-    "main.js": "/React-Template-Generator/static/js/main.22d354f0.js",
+    "main.css": "/React-Template-Generator/static/css/main.73f72c05.css",
+    "main.js": "/React-Template-Generator/static/js/main.e78cf704.js",
     "static/js/787.1c37c6e6.chunk.js": "/React-Template-Generator/static/js/787.1c37c6e6.chunk.js",
     "static/media/logo.svg": "/React-Template-Generator/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/React-Template-Generator/index.html",
-    "main.83227b1e.css.map": "/React-Template-Generator/static/css/main.83227b1e.css.map",
-    "main.22d354f0.js.map": "/React-Template-Generator/static/js/main.22d354f0.js.map",
+    "main.73f72c05.css.map": "/React-Template-Generator/static/css/main.73f72c05.css.map",
+    "main.e78cf704.js.map": "/React-Template-Generator/static/js/main.e78cf704.js.map",
     "787.1c37c6e6.chunk.js.map": "/React-Template-Generator/static/js/787.1c37c6e6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.83227b1e.css",
-    "static/js/main.22d354f0.js"
+    "static/css/main.73f72c05.css",
+    "static/js/main.e78cf704.js"
   ]
 }
