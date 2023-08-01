@@ -48,8 +48,7 @@ const nextStepsComp = (state) => {
     state.input4
   } target="_blank">Click here</a>
           and enter your information to
-          enroll or learn more about this course from GetSmarter (an edX partner).
-          course. After completing this Try It course, you'll be able to:
+          enroll or learn more about this course from GetSmarter (an edX partner). After completing this Try It course, you'll be able to:
         </p>
       </div>
       <b>Executive Education Learning Experience</b>

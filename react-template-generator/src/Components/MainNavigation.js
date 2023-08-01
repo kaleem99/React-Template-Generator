@@ -1,74 +1,162 @@
 import { connect, useDispatch } from "react-redux";
 import { IoMenu } from "react-icons/io5";
+import { FaSearch } from "react-icons/fa"; // Import the search icon from react-icons
+import { useState } from "react";
+import { MdOutlineArrowDropDown, MdArrowLeft } from "react-icons/md";
+
 import {
   CHANGE_PLATFORM,
   CHANGE_SECTION,
   MENU_OPEN_CLOSE,
+  TEMPLATES_DROPDOWN,
+  BUILD_RESOURCES_DROPDOWN,
+  SEARCH_BAR,
 } from "../Redux/actions";
 import { SubSections, Platforms } from "../constants";
-function MainNavigation({ mainNavigationOpenClose, Platform, Sections }) {
+function MainNavigation({
+  mainNavigationOpenClose,
+  Platform,
+  Sections,
+  templateDropDown,
+  buildResourcesDropDown,
+  searchBar,
+}) {
   const dispatch = useDispatch();
+
+  // MdOutlineArrowDropDown
   if (mainNavigationOpenClose === true) {
     return (
       <div className="MainNavigation">
-        <button
-          onClick={() =>
-            dispatch({
-              type: MENU_OPEN_CLOSE,
-              payload: !mainNavigationOpenClose,
-            })
-          }
-          className="ButtonMenu"
-        >
-          <IoMenu />
-        </button>
-        <h3 className="MainTitles">Sections</h3>
-        {Platform !== "" &&
-          SubSections.map((item, i) => (
+        <div className="menuIconAndSearchIcon">
+          <div className="DivButtonMenu">
             <button
-              style={
-                Sections === item
-                  ? { background: "#3D76D4", color: "white" }
-                  : {}
+              onClick={() =>
+                dispatch({
+                  type: MENU_OPEN_CLOSE,
+                  payload: !mainNavigationOpenClose,
+                })
               }
-              id="SectionButtons"
-              onClick={() => dispatch({ type: CHANGE_SECTION, payload: item })}
+              className="ButtonMenu"
             >
-              {item}
+              <IoMenu />
             </button>
-          ))}
+          </div>
+          <div className="searchBarIcon">
+            <div className="search-icon">
+              {searchBar && (
+                <input
+                  className="input-search"
+                  type="text"
+                  placeholder="Search"
+                />
+              )}
+            </div>
+
+            <div
+              className="search-icon icon-search"
+              onClick={() =>
+                dispatch({ type: SEARCH_BAR, payload: !searchBar })
+              }
+            >
+              <FaSearch />
+            </div>
+          </div>
+        </div>
+        <div className="TemplatesDiv">
+          <div className="NavIconAndTabName">
+            <h3 className="MainTitles">Templates</h3>
+            <div
+              className="dropDownIcon"
+              onClick={() =>
+                dispatch({
+                  type: TEMPLATES_DROPDOWN,
+                  payload: !templateDropDown,
+                })
+              }
+            >
+              {templateDropDown ? <MdOutlineArrowDropDown /> : <MdArrowLeft />}
+            </div>
+          </div>
+          {templateDropDown &&
+            Platform !== "" &&
+            SubSections.map((item, i) => (
+              <div className="radioBtnSections">
+                <input
+                  type="radio"
+                  checked={Sections === item ? true : false}
+                />
+                <button
+                  style={Sections === item ? { fontWeight: "bold" } : {}}
+                  id="SectionButtons"
+                  onClick={() =>
+                    dispatch({ type: CHANGE_SECTION, payload: item })
+                  }
+                >
+                  {item}
+                </button>
+              </div>
+            ))}
+        </div>
         <br></br>
-        <h3 className="MainTitles">Platforms</h3>
-        {Platform !== "" &&
-          Platforms.map((item, i) => (
-            <button
-              style={
-                Platform === item
-                  ? { background: "#3D76D4", color: "white" }
-                  : {}
+        <div className="TemplatesDiv">
+          <div className="NavIconAndTabName">
+            <h3 className="MainTitles">Build Resources</h3>
+            <div
+              className="dropDownIcon"
+              onClick={() =>
+                dispatch({
+                  type: BUILD_RESOURCES_DROPDOWN,
+                  payload: !buildResourcesDropDown,
+                })
               }
-              id="SectionButtons"
-              onClick={() => dispatch({ type: CHANGE_PLATFORM, payload: item })}
             >
-              {item}
-            </button>
-          ))}
+              {buildResourcesDropDown ? (
+                <MdOutlineArrowDropDown />
+              ) : (
+                <MdArrowLeft />
+              )}
+            </div>
+          </div>
+          {buildResourcesDropDown &&
+            Platform !== "" &&
+            Platforms.map((item, i) => (
+              <div className="radioBtnSections">
+                <input
+                  type="radio"
+                  checked={Platform === item ? true : false}
+                />
+                <button
+                  style={Platform === item ? { fontWeight: "bold" } : {}}
+                  id="SectionButtons"
+                  onClick={() =>
+                    dispatch({ type: CHANGE_PLATFORM, payload: item })
+                  }
+                >
+                  {item}
+                </button>
+              </div>
+            ))}
+        </div>
       </div>
     );
   }
   return (
     <div className="MainNavigationClose">
-      <button
-        onClick={() =>
-          dispatch({
-            type: MENU_OPEN_CLOSE,
-            payload: !mainNavigationOpenClose,
-          })
-        }
-        className="ButtonMenu"
-      >
-        <IoMenu />
-      </button>
+      <div className="menuIconAndSearchIcon">
+        <div className="DivButtonMenu">
+          <button
+            onClick={() =>
+              dispatch({
+                type: MENU_OPEN_CLOSE,
+                payload: !mainNavigationOpenClose,
+              })
+            }
+            className="ButtonMenu"
+          >
+            <IoMenu />
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
@@ -77,6 +165,9 @@ const mapStateToProps = (state) => {
     mainNavigationOpenClose: state.mainNavigationReducer.menuOpenOrClose,
     Platform: state.platformReducer.Platform,
     Sections: state.sectionsReducer.Sections,
+    templateDropDown: state.mainNavigationReducer.templates,
+    buildResourcesDropDown: state.mainNavigationReducer.buildResources,
+    searchBar: state.mainNavigationReducer.searchBar,
   };
 };
 export default connect(mapStateToProps, {})(MainNavigation);

@@ -198,7 +198,7 @@ function NextSteps({ courseSection, view, state, setState, result }) {
                   onChange={handleChange}
                 />{" "}
                 and enter your information to enroll or learn more about this
-                course from GetSmarter (an edX partner). course. After
+                course from GetSmarter (an edX partner). After
                 completing this Try It course, you'll be able to:
               </p>
             </div>
@@ -209,8 +209,8 @@ function NextSteps({ courseSection, view, state, setState, result }) {
               professional, as outlined in the video below.
             </p>
             <iframe
-              width="1008"
-              height="567"
+              width="100%"
+              height="500px"
               src="https://www.youtube.com/embed/329IDa3GYXs"
               title="Face change with GetSmarter by your side"
               frameborder="0"

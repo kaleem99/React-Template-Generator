@@ -12,7 +12,12 @@ import {
   NEXT_STEPS_EDIT,
   NEXT_STEPS_SAVE,
   NEXT_STEPS_VIEW,
+  EXPORT_TEMPLATE,
+  EXPORT_TEMPLATE_POPUP,
+  UPDATE_TEMPLATE,
+  EXPORT_UPDATE_TEMPLATE,
 } from "../Redux/actions";
+
 function BottomNavigation({
   fileContent,
   platform,
@@ -23,27 +28,7 @@ function BottomNavigation({
   nextStepsPage,
 }) {
   const dispatch = useDispatch();
-  const [isHovered, setIsHovered] = useState([
-    { value: false },
-    { value: false },
-  ]);
-  const handleMouseOver = (e) => {
-    console.log(e.target.name);
-    // setIsHovered(true);
-    const newData = [...isHovered];
-    console.log(newData[e.target.name]);
-    newData[e.target.name].value = true;
-    setIsHovered(newData);
-  };
 
-  const handleMouseLeave = (e) => {
-    console.log(e.target.name);
-    const newData = [...isHovered];
-    newData[e.target.name].value = false;
-    setIsHovered(newData);
-    // setIsHovered(false);
-  };
-  console.log(section);
   const handleSection = () => {
     switch (section) {
       case "Welcome Page":
@@ -61,7 +46,6 @@ function BottomNavigation({
           FUNCTION: tryItPage,
         };
       case "Next Steps":
-        console.log(100);
         return {
           VIEW: NEXT_STEPS_VIEW,
           EDIT: NEXT_STEPS_EDIT,
@@ -72,6 +56,7 @@ function BottomNavigation({
         return { VIEW: "", EDIT: "", SAVE: "" };
     }
   };
+
   const { EDIT, VIEW, SAVE, FUNCTION } = handleSection();
   return (
     <div
@@ -82,70 +67,30 @@ function BottomNavigation({
         margin: "auto",
       }}
     >
-      {/* {fileContent !== "" && (
+      {section !== "Github" && platform !== "" && (
         <>
-          {" "}
-          <button
-            onClick={() => dispatch({ type: CHANGE_FILE_CONTENT, payload: "" })}
-            style={{
-              width: "120px",
-
-              height: "40px",
-              marginTop: "10px",
-              marginBottom: "auto",
-              marginLeft: "100px",
-              borderRadius: "5px",
-              border: "1px solid",
-            }}
-            className="btn"
-          >
-            Back
-          </button>
-          <button
-            // onClick={() => updateGithubFile()}
-            style={{
-              width: "120px",
-              height: "40px",
-              marginTop: "10px",
-              marginBottom: "auto",
-              marginLeft: "100px",
-              borderRadius: "5px",
-              border: "1px solid",
-            }}
-            className="btn"
-          >
-            Update Template
-          </button>
-        </>
-      )} */}
-      {platform !== "" && (
-        <>
-          {" "}
           <span id="TextCopied">
             <p>Template saved</p>
           </span>
-          <button
-            onClick={() => {
-              dispatch({ type: SAVE, payload: FUNCTION });
-              let element = document.getElementById("TextCopied");
-              element.style.display = "block";
-              setTimeout(() => {
-                element.style.display = "none";
-              }, 2000);
-            }}
-            onMouseOver={handleMouseOver}
-            onMouseLeave={handleMouseLeave}
-            name="0"
-            style={{
-              backgroundColor: isHovered[0].value
-                ? "rgb(61, 118, 212)"
-                : "white",
-              color: isHovered[0].value ? "white" : "black",
-            }}
-            className="btnSaveAndView"
-          >
-            Save Template
-          </button>
+          {view ? (
+            <button
+              onClick={() => {
+                dispatch({ type: EXPORT_TEMPLATE_POPUP, payload: true });
+              }}
+              className="btnSaveAndView"
+            >
+              Export Template
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                dispatch({ type: SAVE, payload: FUNCTION });
+              }}
+              className="btnSaveAndView"
+            >
+              Save Template
+            </button>
+          )}
           {fileContent !== "" ? (
             <button
               className="btnSaveAndView"
@@ -157,18 +102,9 @@ function BottomNavigation({
             </button>
           ) : (
             <button
-              name="1"
               onClick={() =>
                 !view ? dispatch({ type: VIEW }) : dispatch({ type: EDIT })
               }
-              onMouseOver={handleMouseOver}
-              onMouseLeave={handleMouseLeave}
-              style={{
-                backgroundColor: isHovered[1].value
-                  ? "rgb(61, 118, 212)"
-                  : "white",
-                color: isHovered[1].value ? "white" : "black",
-              }}
               className="btnSaveAndView"
             >
               {!view ? "View Template" : "Edit Template"}
@@ -176,9 +112,28 @@ function BottomNavigation({
           )}
         </>
       )}
+      {section === "Github" && fileContent !== "" && (
+        <>
+          <button
+            onClick={() => {
+              dispatch({ type: EXPORT_UPDATE_TEMPLATE, payload: fileContent });
+            }}
+            className="btnSaveAndView"
+          >
+            Update
+          </button>
+          <button
+            className="btnSaveAndView"
+            onClick={() => dispatch({ type: CHANGE_FILE_CONTENT, payload: "" })}
+          >
+            Back
+          </button>
+        </>
+      )}
     </div>
   );
 }
+
 const mapStateToProps = (state) => {
   return {
     fileContent: state.contentReducer.fileContent,
@@ -190,4 +145,5 @@ const mapStateToProps = (state) => {
     nextStepsPage: state.nextStepsReducer,
   };
 };
+
 export default connect(mapStateToProps, {})(BottomNavigation);

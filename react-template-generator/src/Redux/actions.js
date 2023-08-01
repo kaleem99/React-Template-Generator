@@ -16,12 +16,21 @@ const TRY_IT_EDIT = "TRY_IT_EDIT";
 const TRY_IT_PAGE_ONCHANGE = "TRY_IT_PAGE_ONCHANGE";
 const NEXT_STEPS_EDIT = "NEXT_STEPS_EDIT";
 const NEXT_STEPS_ONCHANGE = "NEXT_STEPS_ONCHANGE";
+const EXPORT_TEMPLATE_POPUP = "EXPORT_TEMPLATE_POPUP";
+const EXPORT_TEMPLATE = "EXPORT_TEMPLATE";
+const FILTER_GITHUB_FILES = "FILTER_GITHUB_FILES";
+const UPDATE_TEMPLATE = "UPDATE_TEMPLATE";
+const EXPORT_UPDATE_TEMPLATE = "EXPORT_UPDATE_TEMPLATE";
+const TEMPLATES_DROPDOWN = "TEMPLATES_DROPDOWN";
+const BUILD_RESOURCES_DROPDOWN = "BUILD_RESOURCES_DROPDOWN";
+const SEARCH_BAR = "SEARCH_BAR";
 export const fetchApiKey = () => {
   return async (dispatch) => {
     const url = "https://express-template-backend.onrender.com/get-api-token";
     fetch(url)
       .then((response) => response.json())
-      .then((data) => dispatch({ type: FETCH_API_KEY, payload: data.key }));
+      .then((data) => dispatch({ type: FETCH_API_KEY, payload: data.key }))
+      .catch((err) => console.error("Error fetching API Key:", err.message));
   };
 };
 
@@ -44,4 +53,12 @@ export {
   TRY_IT_PAGE_ONCHANGE,
   NEXT_STEPS_ONCHANGE,
   NEXT_STEPS_EDIT,
+  EXPORT_TEMPLATE,
+  EXPORT_TEMPLATE_POPUP,
+  FILTER_GITHUB_FILES,
+  UPDATE_TEMPLATE,
+  EXPORT_UPDATE_TEMPLATE,
+  TEMPLATES_DROPDOWN,
+  BUILD_RESOURCES_DROPDOWN,
+  SEARCH_BAR,
 };

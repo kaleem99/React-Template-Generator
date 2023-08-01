@@ -13,14 +13,21 @@ import welcomePageComp from "../../Components/SectionsComponents/WelcomePageComp
 import tryItContentComp from "../../Components/SectionsComponents/TryItContentComp";
 import nextStepsComp from "../../Components/SectionsComponents/NextStepsComp";
 const initialSTATE = { result: "", message: "", view: false };
+
+const saveTemplates = () => {
+  let element = document.getElementById("TextCopied");
+  element.style.display = "block";
+  setTimeout(() => {
+    element.style.display = "none";
+  }, 2000);
+};
 export const saveAndViewReducer = (state = initialSTATE, action) => {
   let result = "";
-  console.log(action.type);
   switch (action.type) {
-    // Welcome Page
     case WELCOME_SAVE:
       const { input1, input2, input3 } = action.payload;
       if (input1 && input2 && input3) {
+        saveTemplates();
         result = welcomePageComp(action.payload);
         localStorage.setItem(WELCOME_SAVE, result);
         state.message = "File content saved";
@@ -34,9 +41,8 @@ export const saveAndViewReducer = (state = initialSTATE, action) => {
     case WELCOME_EDIT:
       state.view = false;
       return { ...state };
-    // Try It Page
     case TRY_IT_SAVE:
-      console.log(action.payload);
+      saveTemplates();
       result = tryItContentComp(action.payload.content);
       localStorage.setItem(TRY_IT_SAVE, result);
       state.message = "File content saved";
@@ -49,12 +55,17 @@ export const saveAndViewReducer = (state = initialSTATE, action) => {
     case TRY_IT_EDIT:
       state.view = false;
       return { ...state };
-    // Next Steps Page
     case NEXT_STEPS_SAVE:
-      console.log(action.payload);
-      result = nextStepsComp(action.payload);
-      localStorage.setItem(NEXT_STEPS_SAVE, result);
-      state.message = "File content saved";
+      const payloadKeys = Object.keys(action.payload);
+      if (
+        payloadKeys.length === 4 &&
+        payloadKeys.every((key) => action.payload[key])
+      ) {
+        saveTemplates();
+        result = nextStepsComp(action.payload);
+        localStorage.setItem(NEXT_STEPS_SAVE, result);
+        state.message = "File content saved";
+      }
       return { ...state };
     case NEXT_STEPS_VIEW:
       result = localStorage.getItem(NEXT_STEPS_SAVE);

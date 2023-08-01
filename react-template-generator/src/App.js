@@ -10,7 +10,11 @@ function App() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   useEffect(() => {
+   try{
     dispatch(fetchApiKey());
+   }catch(err){
+    console.log(err)
+   }
     // dispatch({ type: FETCH_API_KEY });
   }, []);
   return (

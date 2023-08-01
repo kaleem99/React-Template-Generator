@@ -6,6 +6,11 @@
   border: 1px solid;
   margin-left: 30px;
   font-size: medium;
+  background-color: white;
+}
+.btnSaveAndView:hover {
+  background-color: rgb(61, 118, 212);
+  color: white;
 }
 #TextCopied {
   width: 120px;

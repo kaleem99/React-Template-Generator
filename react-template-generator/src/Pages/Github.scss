@@ -7,16 +7,21 @@
 }
 .GithubContent {
   display: grid;
-  grid-template-columns: auto auto auto;
-  width: 70%;
-  margin: auto;
+  grid-template-columns: 30% 30% 30%;
+  width: 90%;
+  // margin: auto;
 }
 .GithubItem {
-  width: 300px;
+  width: 95%;
   height: 220px;
   margin: 10px auto;
-  border: 1px solid;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+}
+.GithubItem:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  
 }
 .btnEditContent {
   width: 100px;
@@ -27,6 +32,6 @@
   background-color: #173462;
   color: white;
 }
-.githubLink{
+.githubLink {
   font-size: medium;
 }
