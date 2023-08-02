@@ -2,6 +2,9 @@
   margin: 0;
   font-family: "CustomFont";
   src: local("./Fonts/InterWeb/Inter-Regular.woff2") format("woff2");
+  font-family: "Roboto";
+  src: local("./Fonts/Roboto/Roboto-Regular.ttf") format("woff2");
+
 }
 body {
   font-family: "CustomFont, Inter";

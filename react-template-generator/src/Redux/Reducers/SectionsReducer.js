@@ -1,5 +1,5 @@
 import { CHANGE_SECTION } from "../actions";
-const initialSTATE = { Sections: "Welcome Page" };
+const initialSTATE = { Sections: "" };
 export const sectionsReducer = (state = initialSTATE, action) => {
   switch (action.type) {
     case CHANGE_SECTION:

@@ -17,6 +17,7 @@ import {
   NEXT_STEPS_VIEW,
 } from "./Redux/actions";
 import { Connect } from "react-redux";
+import LogoImage from "./images/u-logo-placeholder-3-x.png";
 import React, { useEffect, useState } from "react";
 import MainNavigation from "./Components/MainNavigation";
 import Sections from "./Components/Sections";
@@ -51,27 +52,47 @@ function Main({
   let body = "";
   switch (Platform) {
     case "edX":
-    case "Try Its":
+    case "Try-Its":
     case "Canvas":
     case "Github":
+    case "General":
+    case "Degree":
+    case "Executive Education":
+    case "Bootcamp":
+    case "Micro-Degree":
       body = <Sections />;
       break;
     default:
       body = (
         <div>
-          <h1 className="MainPageHeading">Template Generator</h1>
+          <h1 className="MainPageHeading">Content Designer</h1>
           <div className="platform-Container">
-            {Platforms.slice(0, Platforms.length - 1).map((data, i) => (
-              <button
-                onClick={() =>
-                  dispatch({ type: CHANGE_PLATFORM, payload: data })
-                }
-                className="platform-Items"
-              >
-                <img width={"100%"} height={"60%"} alt="" src={Images[i]} />
-                <h2 className="TemplateName">{data}</h2>
-              </button>
-            ))}
+            {Platforms.map(
+              (data, i) =>
+                i !== 3 && (
+                  <button
+                    onClick={() =>
+                      dispatch({ type: CHANGE_PLATFORM, payload: data })
+                    }
+                    className="platform-Items"
+                  >
+                    <img
+                      width={i < 4 ? "160px" : "85px"}
+                      height={"85px"}
+                      style={{
+                        position: "relative",
+                        top: "15px",
+                        left: 0,
+                        right: 0,
+                        margin: "auto",
+                      }}
+                      alt=""
+                      src={i < 4 ? Images[i] : LogoImage}
+                    />
+                    <h2 className="TemplateName">{data}</h2>
+                  </button>
+                )
+            )}
           </div>
         </div>
       );

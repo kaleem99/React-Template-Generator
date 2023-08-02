@@ -20,7 +20,7 @@ const Sections = ({ Sections }) => {
       body = <NextSteps />;
       break;
     default:
-      body = "";
+      body = <h1 className="SelectATemplate">Select A Template</h1>;
   }
 
   return <div className="SectionContent">{body}</div>;
