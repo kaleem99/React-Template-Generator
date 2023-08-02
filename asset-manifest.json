@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/React-Template-Generator/static/css/main.aeef6d4a.css",
-    "main.js": "/React-Template-Generator/static/js/main.a62c24e3.js",
+    "main.css": "/React-Template-Generator/static/css/main.51fe703f.css",
+    "main.js": "/React-Template-Generator/static/js/main.abc1eda5.js",
     "static/js/787.1c37c6e6.chunk.js": "/React-Template-Generator/static/js/787.1c37c6e6.chunk.js",
+    "static/media/u-logo-placeholder-3-x.png": "/React-Template-Generator/static/media/u-logo-placeholder-3-x.024ec96eb4b57f76863c.png",
     "static/media/objectives-1.svg": "/React-Template-Generator/static/media/objectives-1.0fec35952d74c04c4c8cd1288672f77f.svg",
     "static/media/logo.svg": "/React-Template-Generator/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/React-Template-Generator/index.html",
     "static/media/icon-bg.svg": "/React-Template-Generator/static/media/icon-bg.cb22ba616f488d5d0ddcb1d871519b52.svg",
-    "main.aeef6d4a.css.map": "/React-Template-Generator/static/css/main.aeef6d4a.css.map",
-    "main.a62c24e3.js.map": "/React-Template-Generator/static/js/main.a62c24e3.js.map",
+    "main.51fe703f.css.map": "/React-Template-Generator/static/css/main.51fe703f.css.map",
+    "main.abc1eda5.js.map": "/React-Template-Generator/static/js/main.abc1eda5.js.map",
     "787.1c37c6e6.chunk.js.map": "/React-Template-Generator/static/js/787.1c37c6e6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.aeef6d4a.css",
-    "static/js/main.a62c24e3.js"
+    "static/css/main.51fe703f.css",
+    "static/js/main.abc1eda5.js"
   ]
 }
