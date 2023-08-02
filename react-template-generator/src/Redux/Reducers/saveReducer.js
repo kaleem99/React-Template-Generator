@@ -8,6 +8,7 @@ import {
   NEXT_STEPS_SAVE,
   NEXT_STEPS_EDIT,
   NEXT_STEPS_VIEW,
+  CHANGE_VIEW_TO_FALSE,
 } from "../actions";
 import welcomePageComp from "../../Components/SectionsComponents/WelcomePageComp";
 import tryItContentComp from "../../Components/SectionsComponents/TryItContentComp";
@@ -73,6 +74,9 @@ export const saveAndViewReducer = (state = initialSTATE, action) => {
       state.view = true;
       return { ...state };
     case NEXT_STEPS_EDIT:
+      state.view = false;
+      return { ...state };
+    case CHANGE_VIEW_TO_FALSE:
       state.view = false;
       return { ...state };
     default:

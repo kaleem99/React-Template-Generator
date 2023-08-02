@@ -1,7 +1,10 @@
 import Draggable from "react-draggable";
 import { IoIosCloseCircle } from "react-icons/io";
 import { connect, useDispatch } from "react-redux";
+import "./WelcomePage.scss";
 import { WELCOME_PAGE_ONCHANGE } from "../Redux/actions";
+import imageLOGO1 from "../images/icon-bg.svg";
+import imageLogo2 from "../images/objectives-1.svg";
 const options = [
   {
     value:
@@ -100,16 +103,16 @@ function WelcomePage({
         <div
           className="Welcome PageDiv"
           style={{
-            width: "auto",
+            width: "974px",
             height: "auto",
             padding: "20px",
             // border: "1px solid",
             textAlign: "left",
-            margin: "10% auto",
+            margin: "0% auto",
           }}
         >
           <div style={{ display: "grid", gridTemplateColumns: "auto auto" }}>
-            <div style={{ width: "auto" }}>
+            <div style={{ width: "720px" }}>
               <h1 style={{ color: "#002D58" }}>Welcome to the course</h1>
               <p>
                 Thank you for joining this Try It course. This course is a
@@ -128,51 +131,87 @@ function WelcomePage({
                   value={state.input2}
                   onChange={handleChange}
                 />{" "}
-                course. After completing this Try It course, you'll be able to:
+                course.
               </p>
             </div>
+            <img
+              style={{ position: "relative", width: "250px", right: "10px" }}
+              src="https://mma.prnewswire.com/media/1281773/GetSmarter_Logo.jpg?p=facebook"
+            ></img>
+
             <div>
               <img onDoubleClick={() => setImageSelect(true)} src={image}></img>
             </div>
           </div>
-          <ul>
-            <li>
-              <div
-                style={{
-                  maxWidth: "auto",
-                  minWidth: "30%",
-                  height: "auto",
-                  minHeight: "50px",
-                  border: "0.5px solid",
-                }}
-                contentEditable
-                placeholder=" [insert unit outcome] "
-                name="input3"
-                className="input3"
-                onKeyDown={(event) => {
-                  if (event.keyCode === 13) {
-                    event.preventDefault();
-                    // Insert a line break
-                    const selection = window.getSelection();
-                    const range = selection.getRangeAt(0);
-                    const br = document.createElement("br");
-                    range.insertNode(br);
-                    range.setStartAfter(br);
-                    range.setEndAfter(br);
-                    range.collapse(false);
-                    selection.removeAllRanges();
-                    selection.addRange(range);
-                  }
-                }}
-                dangerouslySetInnerHTML={{
-                  __html: state.input3
-                    ? state.input3
-                    : "Insert Learning Outcomes",
-                }}
-                onInput={handleChange}
-              ></div>
-            </li>
-          </ul>
+          <div className="LearningOutcomesSection">
+            After completing this Try It course, you'll be able to:
+            <div className="LearningOutcomesParent">
+              <div className="LearningOutcomesTextBox">
+                <img
+                  style={{ position: "relative", top: "-10px", left: "-2px" }}
+                  src={imageLOGO1}
+                  alt="React Logo"
+                />
+                <img
+                  style={{
+                    position: "relative",
+                    top: "-12px",
+                    marginLeft: "-54px",
+                  }}
+                  src={imageLogo2}
+                  alt="React Logo"
+                />
+                <div
+                  style={{
+                    position: "relative",
+                    top: "-70px",
+                    left: "66px ",
+                  }}
+                >
+                  <p className="LearningOutcomesText"> Learning outcomes</p>
+                </div>
+              </div>
+
+              <div className="LearningOutcomesOuter">
+                <div
+                  style={{
+                    maxWidth: "auto",
+                    minWidth: "60%",
+                    height: "150px",
+                    minHeight: "50px",
+                    marginTop: "20px",
+                    // border: "0.1px solid",
+                  }}
+                  contentEditable
+                  placeholder=" [insert unit outcome] "
+                  name="input3"
+                  className="input3"
+                  onKeyDown={(event) => {
+                    if (event.keyCode === 13) {
+                      event.preventDefault();
+                      // Insert a line break
+                      const selection = window.getSelection();
+                      const range = selection.getRangeAt(0);
+                      const br = document.createElement("br");
+                      range.insertNode(br);
+                      range.setStartAfter(br);
+                      range.setEndAfter(br);
+                      range.collapse(false);
+                      selection.removeAllRanges();
+                      selection.addRange(range);
+                    }
+                  }}
+                  dangerouslySetInnerHTML={{
+                    __html: state.input3
+                      ? state.input3
+                      : `<li>LO 1</li><br>
+                      <li>LO 2</li><br><li>LO 3</li>`,
+                  }}
+                  onInput={handleChange}
+                ></div>
+              </div>
+            </div>
+          </div>
           <p>
             This free Try It course is ungraded and does not award a
             certificate, but tell us what you think in the survey at the end!

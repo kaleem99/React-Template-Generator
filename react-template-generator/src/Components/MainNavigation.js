@@ -11,8 +11,11 @@ import {
   TEMPLATES_DROPDOWN,
   BUILD_RESOURCES_DROPDOWN,
   SEARCH_BAR,
+  CHANGE_VIEW_TO_FALSE,
+  FILTER_GITHUB_FILES,
 } from "../Redux/actions";
 import { SubSections, Platforms } from "../constants";
+
 function MainNavigation({
   mainNavigationOpenClose,
   Platform,
@@ -41,13 +44,26 @@ function MainNavigation({
               <IoMenu />
             </button>
           </div>
-          <div className="searchBarIcon">
+          <div
+            className="searchBarIcon"
+            style={
+              !searchBar
+                ? { marginLeft: "auto", marginRight: "0px", width: "20%" }
+                : {}
+            }
+          >
             <div className="search-icon">
               {searchBar && (
                 <input
                   className="input-search"
                   type="text"
                   placeholder="Search"
+                  onChange={(e) =>
+                    dispatch({
+                      type: FILTER_GITHUB_FILES,
+                      payload: e.target.value.toLowerCase(),
+                    })
+                  }
                 />
               )}
             </div>
@@ -88,9 +104,10 @@ function MainNavigation({
                 <button
                   style={Sections === item ? { fontWeight: "bold" } : {}}
                   id="SectionButtons"
-                  onClick={() =>
-                    dispatch({ type: CHANGE_SECTION, payload: item })
-                  }
+                  onClick={() => {
+                    dispatch({ type: CHANGE_SECTION, payload: item });
+                    dispatch({ type: CHANGE_VIEW_TO_FALSE });
+                  }}
                 >
                   {item}
                 </button>

@@ -24,6 +24,8 @@ const EXPORT_UPDATE_TEMPLATE = "EXPORT_UPDATE_TEMPLATE";
 const TEMPLATES_DROPDOWN = "TEMPLATES_DROPDOWN";
 const BUILD_RESOURCES_DROPDOWN = "BUILD_RESOURCES_DROPDOWN";
 const SEARCH_BAR = "SEARCH_BAR";
+const CHANGE_VIEW_TO_FALSE = "CHANGE_VIEW_TO_FALSE";
+
 export const fetchApiKey = () => {
   return async (dispatch) => {
     const url = "https://express-template-backend.onrender.com/get-api-token";
@@ -61,4 +63,5 @@ export {
   TEMPLATES_DROPDOWN,
   BUILD_RESOURCES_DROPDOWN,
   SEARCH_BAR,
+  CHANGE_VIEW_TO_FALSE
 };
