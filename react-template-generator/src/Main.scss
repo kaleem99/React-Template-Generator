@@ -25,12 +25,12 @@
   border-radius: 20px;
   border: 10px solid #f2f2f2;
   background: #fff;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px 0px #002d58;
   display: grid;
   grid-template-rows: 120px auto;
 }
 .platform-Items:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 .MainInnerContent {
   width: 90%;
@@ -55,15 +55,16 @@
   // border-radius: 10px;
 }
 .ButtonMenu {
-  font-size: 35px;
+  font-size: 40px;
   width: 100%;
+  height: 80%;
   border: none;
   background: none;
   cursor: pointer;
 }
 .DivButtonMenu {
   width: 50px;
-  margin-left: 20px;
+  margin-left: auto;
   margin-right: auto;
   margin-top: auto;
   margin-bottom: auto;
@@ -93,7 +94,6 @@
   text-align: left;
   margin-left: 10px;
   cursor: pointer;
-
 }
 #SectionButtons:hover {
   // background-color: #173462;
@@ -112,7 +112,7 @@
 }
 
 .TemplateName {
-  color: #4D4D4D;
+  color: #4d4d4d;
   font-weight: 900;
   font-size: 26px;
   position: relative;
@@ -163,14 +163,14 @@
 }
 
 .TemplatesDiv {
-  width: 86%;
+  width: 90%;
   height: auto;
   padding: 10px;
   background-color: #ffffff;
   margin: auto;
   border-radius: 10px;
 }
-.TemplatesDiv:nth-of-type(3){
+.TemplatesDiv:nth-of-type(3) {
   overflow-x: scroll;
   height: 370px;
 }
@@ -195,9 +195,12 @@
 .menuIconAndSearchIcon {
   width: 96%;
   display: grid;
-  grid-template-columns: 85px auto;
-  margin-top: 20px;
+  grid-template-columns: 70px auto;
+  margin-top: 10px;
+  height: 50px;
   margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
   // margin: auto;
 }
 .search-icon {
@@ -214,10 +217,12 @@
 }
 .icon-search {
   cursor: pointer;
-  display: grid;
+  // display: grid;
   align-items: center;
-  grid-template-columns: auto 10px;
+  // grid-template-columns: auto 10px;
   padding: 5px;
+  margin-left: -5px;
+
   font-size: 25px;
   justify-content: center;
   text-align: center;
@@ -259,4 +264,40 @@
   color: white;
   width: 60%;
   margin: auto;
+}
+.MainBottomSelect {
+  width: 100%;
+  height: 60px;
+  // border: 1px solid;
+  margin: auto;
+}
+.MainBottomButtons {
+  width: 200px;
+  height: 40px;
+  margin-top: 5px;
+  border: 1px solid #f2f2f2;
+  margin-right: 5%;
+  margin-left: auto;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 100px 100px;
+}
+#selectBtn {
+  background: #002d58;
+  box-shadow: 4px 4px 4px 2px #002d58;
+}
+#selectBtn > .TemplateName {
+  color: white;
+}
+.btnCancel{
+  background-color: white;
+  color: #002d58;
+  border: 1px solid #f2f2f2;
+  cursor: pointer;
+}
+.btnSelect{
+  background-color: #002d58;
+  color: white;
+  border: none;
+  cursor: pointer;
 }

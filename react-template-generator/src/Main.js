@@ -15,6 +15,7 @@ import {
   NEXT_STEPS_EDIT,
   NEXT_STEPS_SAVE,
   NEXT_STEPS_VIEW,
+  SELECT_PLATFORM,
 } from "./Redux/actions";
 import { Connect } from "react-redux";
 import LogoImage from "./images/u-logo-placeholder-3-x.png";
@@ -36,6 +37,7 @@ function Main({
   tryItPage,
   nextStepsPage,
   result,
+  Select,
 }) {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
@@ -72,9 +74,10 @@ function Main({
                 i !== 3 && (
                   <button
                     onClick={() =>
-                      dispatch({ type: CHANGE_PLATFORM, payload: data })
+                      dispatch({ type: SELECT_PLATFORM, payload: data })
                     }
-                    className="platform-Items"
+                    id={Select === data ? "selectBtn" : ""}
+                    className={"platform-Items"}
                   >
                     <img
                       width={i < 4 ? "160px" : "85px"}
@@ -141,6 +144,26 @@ function Main({
       >
         {body}
       </div>
+      {Platform === "" && (
+        <div className="MainBottomSelect">
+          <div className="MainBottomButtons">
+            <button
+              className="btnCancel"
+              onClick={() => dispatch({ type: SELECT_PLATFORM, payload: "" })}
+            >
+              Cancel
+            </button>
+            <button
+              className="btnSelect"
+              onClick={() =>
+                dispatch({ type: CHANGE_PLATFORM, payload: Select })
+              }
+            >
+              Select
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -154,6 +177,7 @@ const mapStateToProps = (state) => {
     tryItPage: state.tryItContentReducer,
     nextStepsPage: state.nextStepsReducer,
     result: state.saveAndViewReducer.result,
+    Select: state.platformReducer.Select,
   };
 };
 export default connect(mapStateToProps, {})(Main);

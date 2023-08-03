@@ -20,7 +20,14 @@ const Sections = ({ Sections }) => {
       body = <NextSteps />;
       break;
     default:
-      body = <h1 className="SelectATemplate">Select A Template</h1>;
+      body = (
+        <div
+          style={{ height: "65vh", paddingLeft: "20px" }}
+          className="Welcome PageDiv"
+        >
+          <h1 className="SelectATemplate">Select A Template</h1>
+        </div>
+      );
   }
 
   return <div className="SectionContent">{body}</div>;
