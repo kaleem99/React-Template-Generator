@@ -1,23 +1,12 @@
 import "./Main.scss";
-import WelcomePage from "./Pages/WelcomePage";
 import { Platforms } from "./constants";
-import { useSelector, useDispatch, connect } from "react-redux";
+import { useDispatch, connect } from "react-redux";
 import {
   CHANGE_PLATFORM,
   EXPORT_TEMPLATE,
   EXPORT_TEMPLATE_POPUP,
-  WELCOME_VIEW,
-  WELCOME_SAVE,
-  WELCOME_EDIT,
-  TRY_IT_EDIT,
-  TRY_IT_VIEW,
-  TRY_IT_SAVE,
-  NEXT_STEPS_EDIT,
-  NEXT_STEPS_SAVE,
-  NEXT_STEPS_VIEW,
   SELECT_PLATFORM,
 } from "./Redux/actions";
-import { Connect } from "react-redux";
 import LogoImage from "./images/u-logo-placeholder-3-x.png";
 import React, { useEffect, useState } from "react";
 import MainNavigation from "./Components/MainNavigation";
@@ -31,11 +20,7 @@ const Images = [
 function Main({
   Platform,
   popup,
-  courseSection,
-  APIKey,
-  welcomePage,
-  tryItPage,
-  nextStepsPage,
+
   result,
   Select,
 }) {
@@ -105,7 +90,7 @@ function Main({
   return (
     <div
       className="Main"
-      style={Platform === "" ? { display: "block" } : { display: "grid" }}
+      style={Platform === "" ? { display: "block" } : { display: "flex" }}
     >
       {Platform !== "" && <MainNavigation />}
       {popup && (
@@ -171,11 +156,6 @@ const mapStateToProps = (state) => {
   return {
     Platform: state.platformReducer.Platform,
     popup: state.contentReducer.popup,
-    courseSection: state.sectionsReducer.Sections,
-    APIKey: state.githubReducer.APIKey,
-    welcomePage: state.welcomePageReducer,
-    tryItPage: state.tryItContentReducer,
-    nextStepsPage: state.nextStepsReducer,
     result: state.saveAndViewReducer.result,
     Select: state.platformReducer.Select,
   };

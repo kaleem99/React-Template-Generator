@@ -202,10 +202,7 @@ function WelcomePage({
                     }
                   }}
                   dangerouslySetInnerHTML={{
-                    __html: state.input3
-                      ? state.input3
-                      : `<li>LO 1</li><br>
-                      <li>LO 2</li><br><li>LO 3</li>`,
+                    __html: state.input3,
                   }}
                   onInput={handleChange}
                 ></div>
@@ -237,7 +234,7 @@ function WelcomePage({
   } else {
     return (
       <div
-        style={{ textAlign: "left", margin: "10% auto" }}
+        style={{ textAlign: "left", marginLeft: "auto", marginRight: "auto" }}
         dangerouslySetInnerHTML={{ __html: result }}
       ></div>
     );

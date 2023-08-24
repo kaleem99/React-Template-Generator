@@ -170,7 +170,14 @@ function MainNavigation({
               marginTop: "0px",
               backgroundColor: "#F2F2F2",
               borderRadius: "5px",
+              cursor: "pointer",
             }}
+            onClick={() =>
+              dispatch({
+                type: MENU_OPEN_CLOSE,
+                payload: !mainNavigationOpenClose,
+              })
+            }
           >
             <img
               width={"50px"}
@@ -213,7 +220,14 @@ function MainNavigation({
             marginTop: "0px",
             backgroundColor: "#F2F2F2",
             borderRadius: "5px",
+            cursor: "pointer",
           }}
+          onClick={() =>
+            dispatch({
+              type: MENU_OPEN_CLOSE,
+              payload: !mainNavigationOpenClose,
+            })
+          }
         >
           <img
             width={"50px"}

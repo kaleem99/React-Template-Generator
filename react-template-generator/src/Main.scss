@@ -11,7 +11,7 @@
 .platform-Container {
   width: 1060px;
   height: 510px;
-  margin: 5% auto;
+  margin: auto;
   display: grid;
   grid-template-columns: 24% 24% 24% 24%;
 }
@@ -38,6 +38,8 @@
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
+  padding: 10px;
+  overflow: auto;
 }
 
 .MainHeader {
@@ -172,7 +174,7 @@
 }
 .TemplatesDiv:nth-of-type(3) {
   overflow-x: scroll;
-  height: 370px;
+  height: calc(100% - 45% - 60px);
 }
 // .TemplatesDiv
 .radioBtnSections {
@@ -266,10 +268,10 @@
   margin: auto;
 }
 .MainBottomSelect {
-  width: 100%;
+  width: 1060px;
   height: 60px;
   // border: 1px solid;
-  margin: auto;
+  margin: 20px auto;
 }
 .MainBottomButtons {
   width: 200px;
@@ -289,13 +291,13 @@
 #selectBtn > .TemplateName {
   color: white;
 }
-.btnCancel{
+.btnCancel {
   background-color: white;
   color: #002d58;
   border: 1px solid #f2f2f2;
   cursor: pointer;
 }
-.btnSelect{
+.btnSelect {
   background-color: #002d58;
   color: white;
   border: none;

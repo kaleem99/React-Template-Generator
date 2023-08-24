@@ -106,6 +106,7 @@ function BottomNavigation({
             <button
               onClick={() => {
                 dispatch({ type: SAVE, payload: FUNCTION });
+                console.log(100);
               }}
               className="btnSaveAndView"
             >
